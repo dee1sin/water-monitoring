@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/positionhandler.css' %}">
+</head>
+<body>
+    {% include "dashboard/navbar.html"  %}
+    {% load plotly_dash %}
+ <div class="main">
+   <div class="col pt-3 ">
+        <div class="row">
+        <a class="cal-sm-6" id="waterstate" href="waterstate/" >
+            <div class="card" style="width:39rem">
+                <div class="card-body">
+                    {% load plotly_dash %}
+                    {% plotly_app name="waterstate" ratio=0.70%}
+                </div>
+            </div>
+        </a>
+
+        <div class="col-sm-6" id="sensorAGraph">
+            <div class="card" style="width:53rem;">
+                <div class="card-body">
+                    {% load plotly_dash %}
+                    {% plotly_app name="sensorAView" ratio=0.508 %}
+                </div>
+            </div>
+        </div>
+     </div>
+      <div class="row py-3">
+        <div class="col-sm-4" id="pressurebar">
+            <div class="card" style="width:30rem">
+                <div class="card-body">
+                    {% load plotly_dash %}
+                    {% plotly_app name="underPressure" ratio=1.20 %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4" id="sensorBGraph">
+            <div class="card" style="width:61rem">
+                <div class="card-body">
+                    {% load plotly_dash %}
+                    {% plotly_app name="sensorBView" ratio=0.5 %}
+                </div>
+            </div>
+        </div>
+        </div>
+   </div>
+
+        <div class="col py-0 ">
+        <div class="col-sm-6" id="sensorCGraph">
+            <div class="card" style="width:90rem">
+                <div class="card-body">
+                    {% load plotly_dash %}
+                    {% plotly_app name="sensorCView" ratio=0.35 %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6" id="sensorDGraph">
+            <div class="card" style="width:90rem">
+                <div class="card-body">
+                    {% load plotly_dash %}
+                    {% plotly_app name="sensorDView" ratio=0.35 %}
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
